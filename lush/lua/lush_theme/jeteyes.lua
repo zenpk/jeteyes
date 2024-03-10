@@ -126,7 +126,7 @@ local theme = lush(function(injected_functions)
 		Title          { fg = c.orange }, -- Titles for output from ":set all", ":autocmd" etc.
 		Visual         { bg = c.selectBlue }, -- Visual mode selection
 		-- VisualNOS      { }, -- Visual mode selection when vim is "Not Owning the Selection".
-		WarningMsg     { fg = c.red }, -- Warning messages
+		WarningMsg     { fg = c.classYellow }, -- Warning messages
 		-- Whitespace     { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
 		-- Winseparator   { }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
 		WildMenu       { bg = c.visualBlue }, -- Current match in 'wildmenu' completion
