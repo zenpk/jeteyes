@@ -174,7 +174,7 @@ local theme = lush(function(injected_functions)
 
 		Special        { }, -- (*) Any special symbol
 		SpecialChar    { }, --   Special character in a constant
-		-- Tag            { }, --   You can use CTRL-] on this
+		Tag            { fg = c.tagYellow }, --   You can use CTRL-] on this
 		-- Delimiter      { }, --   Character that needs attention
 		-- SpecialComment { }, --   Special things inside a comment (e.g. '\n')
 		-- Debug          { }, --   Debugging statements
@@ -250,6 +250,7 @@ local theme = lush(function(injected_functions)
 		-- sym"@text.todo"         { }, -- Todo
 		sym"@comment"           { fg = c.grey }, -- Comment
 		sym"@punctuation"       { fg = c.white }, -- Delimiter
+		sym"@punctuation.tag"   { fg = c.tagYellow },
 		sym"@constant"          { fg = c.purple }, -- Constant
 		-- sym"@constant.builtin"  { fg = c.builtInGreen }, -- Special
 		-- sym"@constant.macro"    { }, -- Define
