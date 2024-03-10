@@ -250,7 +250,8 @@ local theme = lush(function(injected_functions)
 		-- sym"@text.todo"         { }, -- Todo
 		sym"@comment"           { fg = c.grey }, -- Comment
 		sym"@punctuation"       { fg = c.white }, -- Delimiter
-		sym"@punctuation.tag"   { fg = c.tagYellow },
+		sym"@punctuation.tag"   { fg = c.tagYellow }, -- HTML tag angle brackets
+		sym"@attribute"         { fg = c.white }, -- HTML tag attribute
 		sym"@constant"          { fg = c.purple }, -- Constant
 		-- sym"@constant.builtin"  { fg = c.builtInGreen }, -- Special
 		-- sym"@constant.macro"    { }, -- Define
