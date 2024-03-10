@@ -77,3 +77,4 @@ vim.cmd("let g:colors_name='jeteyes'")
 for group, attrs in pairs(colors) do
 	vim.api.nvim_set_hl(0, group, attrs)
 end
+return {}
