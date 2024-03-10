@@ -79,7 +79,7 @@ local theme = lush(function(injected_functions)
 		-- TermCursor     { }, -- Cursor in a focused terminal
 		-- TermCursorNC   { }, -- Cursor in an unfocused terminal
 		ErrorMsg       { fg = c.red }, -- Error messages on the command line
-		-- VertSplit      { }, -- Column separating vertically split windows
+		VertSplit      { fg = c.black }, -- Column separating vertically split windows
 		-- Folded         { }, -- Line used for closed folds
 		-- FoldColumn     { }, -- 'foldcolumn'
 		SignColumn     { }, -- Column where |signs| are displayed
@@ -96,7 +96,7 @@ local theme = lush(function(injected_functions)
 		-- MsgArea        { }, -- Area for messages and cmdline
 		-- MsgSeparator   { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
 		-- MoreMsg        { }, -- |more-prompt|
-		NonText        { fg = c.grey.darken(30) }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+		NonText        { fg = c.grey.darken(50) }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
 		Normal         { bg = c.black, fg = c.white }, -- Normal text
 		NormalFloat    { fg = c.white }, -- Normal text in floating windows.
 		FloatBorder    { fg = c.blue.saturate(-50).darken(20) }, -- Border of floating windows.
@@ -259,7 +259,7 @@ local theme = lush(function(injected_functions)
 		sym"@string.escape"     { fg = c.orange }, -- SpecialChar
 		-- sym"@string.special"    { }, -- SpecialChar
 		-- sym"@character"         { }, -- Character
-		-- sym"@character.special" { }, -- SpecialChar
+		sym"@character.special" { }, -- SpecialChar
 		-- sym"@number"            { }, -- Number
 		-- sym"@boolean"           { }, -- Boolean
 		-- sym"@float"             { }, -- Float
