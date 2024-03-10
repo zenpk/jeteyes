@@ -17,6 +17,7 @@ local M = {
 	searchNow = hsl(192, 67, 20),
 	searchOthers = hsl(122, 28, 18),
 	grey = hsl(218, 4, 50),
+	highlightGrey = hsl(223, 5, 28),
 	orange = hsl(20, 51, 62),
 	blue = hsl(209, 89, 65),
 	typeBlue = hsl(191, 37, 59),
@@ -35,6 +36,7 @@ local M = {
 	-- custom
 	lightRed = hsl(355, 65, 65),
 	statusLineBg = hsl(219, 16, 21),
+	builtInGreen = hsl(148, 28, 74),
 }
 
 return M

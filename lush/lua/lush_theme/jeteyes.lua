@@ -62,7 +62,7 @@ local theme = lush(function(injected_functions)
 		--
 		-- See :h highlight-groups
 		--
-		-- ColorColumn    { }, -- Columns set with 'colorcolumn'
+		ColorColumn    { bg = c.menuBg }, -- Columns set with 'colorcolumn'
 		-- Conceal        { }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
 		Cursor            { bg = c.lightWhite, fg = c.darkBlack }, -- Character under the cursor
 		CurSearch         { bg = c.searchNow }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
@@ -73,12 +73,12 @@ local theme = lush(function(injected_functions)
 		Directory      { }, -- Directory names (and other special names in listings)
 		DiffAdd        { fg = c.green.saturate(60) }, -- Diff mode: Added line |diff.txt|
 		DiffChange     { fg = c.blue.saturate(50) }, -- Diff mode: Changed line |diff.txt|
-		DiffDelete     { fg = c.red }, -- Diff mode: Deleted line |diff.txt|
+		DiffDelete     { fg = c.red.lighten(20) }, -- Diff mode: Deleted line |diff.txt|
 		DiffText       { bg = c.diffBlue }, -- Diff mode: Changed text within a changed line |diff.txt|
-		EndOfBuffer    { }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
+		EndOfBuffer    { fg = c.black }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
 		-- TermCursor     { }, -- Cursor in a focused terminal
 		-- TermCursorNC   { }, -- Cursor in an unfocused terminal
-		ErrorMsg       { }, -- Error messages on the command line
+		ErrorMsg       { fg = c.red }, -- Error messages on the command line
 		-- VertSplit      { }, -- Column separating vertically split windows
 		-- Folded         { }, -- Line used for closed folds
 		-- FoldColumn     { }, -- 'foldcolumn'
@@ -89,19 +89,19 @@ local theme = lush(function(injected_functions)
 		LineNrAbove    { fg = c.lineNrOther.lighten(20) }, -- Line number for when the 'relativenumber' option is set, above the cursor line
 		LineNrBelow    { fg = c.lineNrOther.lighten(20) }, -- Line number for when the 'relativenumber' option is set, below the cursor line
 		CursorLineNr   { }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-		-- CursorLineFold { }, -- Like FoldColumn when 'cursorline' is set for the cursor line
-		-- CursorLineSign { }, -- Like SignColumn when 'cursorline' is set for the cursor line
-		-- MatchParen     { }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-		ModeMsg        { }, -- 'showmode' message (e.g., "-- INSERT -- ")
+		CursorLineFold { }, -- Like FoldColumn when 'cursorline' is set for the cursor line
+		CursorLineSign { }, -- Like SignColumn when 'cursorline' is set for the cursor line
+		MatchParen     { bg = c.highlightGrey }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+		ModeMsg        { bg = c.orange }, -- 'showmode' message (e.g., "-- INSERT -- ")
 		-- MsgArea        { }, -- Area for messages and cmdline
 		-- MsgSeparator   { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
 		-- MoreMsg        { }, -- |more-prompt|
-		NonText        { fg = c.grey.darken(50) }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+		NonText        { fg = c.grey.darken(30) }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
 		Normal         { bg = c.black, fg = c.white }, -- Normal text
-		NormalFloat    { }, -- Normal text in floating windows.
-		FloatBorder    { }, -- Border of floating windows.
-		FloatTitle     { }, -- Title of floating windows.
-		NormalNC       { bg = c.black.darken(15) }, -- normal text in non-current windows
+		NormalFloat    { fg = c.white }, -- Normal text in floating windows.
+		FloatBorder    { fg = c.blue.saturate(-50).darken(20) }, -- Border of floating windows.
+		FloatTitle     { bg = c.black, fg = c.white}, -- Title of floating windows.
+		NormalNC       { bg = c.menuBg }, -- normal text in non-current windows
 		Pmenu          { bg = c.popupBlack }, -- Popup menu: Normal item.
 		PmenuSel       { bg = c.menuLineBg }, -- Popup menu: Selected item.
 		-- PmenuKind      { }, -- Popup menu: Normal item "kind"
@@ -113,13 +113,13 @@ local theme = lush(function(injected_functions)
 		-- Question       { }, -- |hit-enter| prompt and yes/no questions
 		-- QuickFixLine   { }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
 		Search         { bg = c.searchOthers }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
-		-- SpecialKey     { }, -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
-		-- SpellBad       { }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
-		-- SpellCap       { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
-		-- SpellLocal     { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
-		-- SpellRare      { }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
+		SpecialKey     { fg = c.red }, -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
+		SpellBad       { undercurl = true }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
+		SpellCap       { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
+		SpellLocal     { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
+		SpellRare      { }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
 		StatusLine     { bg = c.statusLineBg.lighten(10) }, -- Status line of current window
-		StatusLineNC   { bg = c.statusLineBg.darken(15) }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+		StatusLineNC   { bg = c.statusLineBg }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
 		-- TabLine        { }, -- Tab pages line, not active tab page label
 		-- TabLineFill    { }, -- Tab pages line, where there are no labels
 		-- TabLineSel     { }, -- Tab pages line, active tab page label
@@ -129,8 +129,8 @@ local theme = lush(function(injected_functions)
 		WarningMsg     { fg = c.red }, -- Warning messages
 		-- Whitespace     { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
 		-- Winseparator   { }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
-		-- WildMenu       { }, -- Current match in 'wildmenu' completion
-		WinBar         { bg = c.white }, -- Window bar of current window
+		WildMenu       { bg = c.visualBlue }, -- Current match in 'wildmenu' completion
+		WinBar         { bg = c.grey }, -- Window bar of current window
 		WinBarNC       { bg = c.black.darken(15) }, -- Window bar of not-current windows
 
 		-- Common vim syntax groups used for all kinds of code and markup.
@@ -199,7 +199,7 @@ local theme = lush(function(injected_functions)
 
 		-- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
 		--
-		-- DiagnosticError            { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+		DiagnosticError            { fg = c.red } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
 		-- DiagnosticWarn             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
 		-- DiagnosticInfo             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
 		-- DiagnosticHint             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
@@ -242,21 +242,21 @@ local theme = lush(function(injected_functions)
 		--
 		-- For more information see https://github.com/rktjmp/lush.nvim/issues/109
 
-		-- sym"@text.literal"      { }, -- Comment
+		sym"@text.literal"      { fg = c.grey }, -- Comment
 		-- sym"@text.reference"    { }, -- Identifier
 		-- sym"@text.title"        { }, -- Title
 		-- sym"@text.uri"          { }, -- Underlined
 		-- sym"@text.underline"    { }, -- Underlined
 		-- sym"@text.todo"         { }, -- Todo
-		-- sym"@comment"           { }, -- Comment
-		-- sym"@punctuation"       { }, -- Delimiter
-		-- sym"@constant"          { }, -- Constant
-		-- sym"@constant.builtin"  { }, -- Special
+		sym"@comment"           { fg = c.grey }, -- Comment
+		sym"@punctuation"       { fg = c.white }, -- Delimiter
+		sym"@constant"          { fg = c.purple }, -- Constant
+		sym"@constant.builtin"  { fg = c.builtInGreen }, -- Special
 		-- sym"@constant.macro"    { }, -- Define
 		-- sym"@define"            { }, -- Define
 		-- sym"@macro"             { }, -- Macro
 		-- sym"@string"            { }, -- String
-		-- sym"@string.escape"     { }, -- SpecialChar
+		sym"@string.escape"     { fg = c.orange }, -- SpecialChar
 		-- sym"@string.special"    { }, -- SpecialChar
 		-- sym"@character"         { }, -- Character
 		-- sym"@character.special" { }, -- SpecialChar
@@ -264,20 +264,20 @@ local theme = lush(function(injected_functions)
 		-- sym"@boolean"           { }, -- Boolean
 		-- sym"@float"             { }, -- Float
 		-- sym"@function"          { }, -- Function
-		-- sym"@function.builtin"  { }, -- Special
+		sym"@function.builtin"  { fg = c.builtInGreen }, -- Special
 		-- sym"@function.macro"    { }, -- Macro
-		-- sym"@parameter"         { }, -- Identifier
-		-- sym"@method"            { }, -- Function
-		-- sym"@field"             { }, -- Identifier
-		-- sym"@property"          { }, -- Identifier
-		-- sym"@constructor"       { }, -- Special
+		sym"@parameter"         { fg = c.white, gui = 'italic'}, -- Identifier
+		sym"@method"            { fg = c.methodYellow }, -- Function
+		sym"@field"             { fg = c.purple }, -- Identifier
+		sym"@property"          { fg = c.purple }, -- Identifier
+		sym"@constructor"       { fg = c.orange }, -- Special
 		-- sym"@conditional"       { }, -- Conditional
 		-- sym"@repeat"            { }, -- Repeat
 		-- sym"@label"             { }, -- Label
 		-- sym"@operator"          { }, -- Operator
 		-- sym"@keyword"           { }, -- Keyword
 		-- sym"@exception"         { }, -- Exception
-		-- sym"@variable"          { }, -- Identifier
+		sym"@variable"          { fg = c.white }, -- Identifier
 		-- sym"@type"              { }, -- Type
 		-- sym"@type.definition"   { }, -- Typedef
 		-- sym"@storageclass"      { }, -- StorageClass
