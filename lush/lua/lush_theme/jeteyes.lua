@@ -92,7 +92,7 @@ local theme = lush(function(injected_functions)
 		CursorLineFold { }, -- Like FoldColumn when 'cursorline' is set for the cursor line
 		CursorLineSign { }, -- Like SignColumn when 'cursorline' is set for the cursor line
 		MatchParen     { bg = c.highlightGrey }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-		ModeMsg        { bg = c.orange }, -- 'showmode' message (e.g., "-- INSERT -- ")
+		-- ModeMsg        { }, -- 'showmode' message (e.g., "-- INSERT -- ")
 		-- MsgArea        { }, -- Area for messages and cmdline
 		-- MsgSeparator   { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
 		-- MoreMsg        { }, -- |more-prompt|
@@ -113,7 +113,7 @@ local theme = lush(function(injected_functions)
 		-- Question       { }, -- |hit-enter| prompt and yes/no questions
 		-- QuickFixLine   { }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
 		Search         { bg = c.searchOthers }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
-		SpecialKey     { fg = c.red }, -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
+		SpecialKey     { fg = c.green.darken(30) }, -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
 		SpellBad       { undercurl = true }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
 		SpellCap       { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
 		SpellLocal     { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
@@ -251,7 +251,7 @@ local theme = lush(function(injected_functions)
 		sym"@comment"           { fg = c.grey }, -- Comment
 		sym"@punctuation"       { fg = c.white }, -- Delimiter
 		sym"@constant"          { fg = c.purple }, -- Constant
-		sym"@constant.builtin"  { fg = c.builtInGreen }, -- Special
+		-- sym"@constant.builtin"  { fg = c.builtInGreen }, -- Special
 		-- sym"@constant.macro"    { }, -- Define
 		-- sym"@define"            { }, -- Define
 		-- sym"@macro"             { }, -- Macro
@@ -264,7 +264,7 @@ local theme = lush(function(injected_functions)
 		-- sym"@boolean"           { }, -- Boolean
 		-- sym"@float"             { }, -- Float
 		-- sym"@function"          { }, -- Function
-		sym"@function.builtin"  { fg = c.builtInGreen }, -- Special
+		-- sym"@function.builtin"  { fg = c.builtInGreen }, -- Special
 		-- sym"@function.macro"    { }, -- Macro
 		sym"@parameter"         { fg = c.white, gui = 'italic'}, -- Identifier
 		sym"@method"            { fg = c.methodYellow }, -- Function
