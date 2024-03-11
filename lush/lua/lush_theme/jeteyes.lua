@@ -175,12 +175,12 @@ local theme = lush(function(injected_functions)
 		Special        { }, -- (*) Any special symbol
 		SpecialChar    { }, --   Special character in a constant
 		Tag            { fg = c.tagYellow }, --   You can use CTRL-] on this
-		-- Delimiter      { }, --   Character that needs attention
-		-- SpecialComment { }, --   Special things inside a comment (e.g. '\n')
-		-- Debug          { }, --   Debugging statements
+		Delimiter      { }, --   Character that needs attention
+		SpecialComment { fg = c.grey }, --   Special things inside a comment (e.g. '\n')
+		Debug          { fg = c.grey }, --   Debugging statements
 
-		-- Underlined     { gui = "underline" }, -- Text that stands out, HTML links
-		-- Ignore         { }, -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
+		Underlined     { fg = c.blue, gui = "underline" }, -- Text that stands out, HTML links
+		Ignore         { fg = c.grey.darken(50) }, -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
 		Error          { fg = c.red }, -- Any erroneous construct
 		Todo           { bg = c.white, fg = c.black }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
@@ -242,45 +242,27 @@ local theme = lush(function(injected_functions)
 		--
 		-- For more information see https://github.com/rktjmp/lush.nvim/issues/109
 
-		sym"@text.literal"      { fg = c.grey }, -- Comment
+		-- sym"@text.literal"      { }, -- Comment
 		-- sym"@text.reference"    { }, -- Identifier
 		-- sym"@text.title"        { }, -- Title
 		-- sym"@text.uri"          { }, -- Underlined
 		-- sym"@text.underline"    { }, -- Underlined
 		-- sym"@text.todo"         { }, -- Todo
-		sym"@comment"           { fg = c.grey }, -- Comment
-		sym"@punctuation"       { fg = c.white }, -- Delimiter
-		sym"@punctuation.tag"   { fg = c.tagYellow }, -- HTML tag angle brackets
-		sym"@attribute"         { fg = c.white }, -- HTML tag attribute
-		sym"@constant"          { fg = c.purple }, -- Constant
-		-- sym"@constant.builtin"  { fg = c.builtInGreen }, -- Special
+		-- sym"@comment"           { }, -- Comment
 		-- sym"@constant.macro"    { }, -- Define
 		-- sym"@define"            { }, -- Define
 		-- sym"@macro"             { }, -- Macro
 		-- sym"@string"            { }, -- String
-		sym"@string.escape"     { fg = c.orange }, -- SpecialChar
 		-- sym"@string.special"    { }, -- SpecialChar
 		-- sym"@character"         { }, -- Character
-		sym"@character.special" { }, -- SpecialChar
 		-- sym"@number"            { }, -- Number
 		-- sym"@boolean"           { }, -- Boolean
 		-- sym"@float"             { }, -- Float
-		-- sym"@function"          { }, -- Function
-		-- sym"@function.builtin"  { fg = c.builtInGreen }, -- Special
-		-- sym"@function.macro"    { }, -- Macro
-		sym"@parameter"         { fg = c.white, gui = 'italic'}, -- Identifier
-		sym"@method"            { fg = c.methodYellow }, -- Function
-		sym"@field"             { fg = c.purple }, -- Identifier
-		sym"@property"          { fg = c.purple }, -- Identifier
-		sym"@constructor"       { fg = c.orange }, -- Special
 		-- sym"@conditional"       { }, -- Conditional
 		-- sym"@repeat"            { }, -- Repeat
 		-- sym"@label"             { }, -- Label
-		-- sym"@operator"          { }, -- Operator
 		-- sym"@keyword"           { }, -- Keyword
 		-- sym"@exception"         { }, -- Exception
-		sym"@variable"          { fg = c.white }, -- Identifier
-		-- sym"@type"              { }, -- Type
 		-- sym"@type.definition"   { }, -- Typedef
 		-- sym"@storageclass"      { }, -- StorageClass
 		-- sym"@structure"         { }, -- Structure
@@ -288,7 +270,41 @@ local theme = lush(function(injected_functions)
 		-- sym"@include"           { }, -- Include
 		-- sym"@preproc"           { }, -- PreProc
 		-- sym"@debug"             { }, -- Debug
-		-- sym"@tag"               { }, -- Tag
+
+		-- https://github.com/nvim-treesitter/nvim-treesitter/blob/master/CONTRIBUTING.md
+		sym"@punctuation"       { fg = c.white }, -- Delimiter
+		sym"@punctuation.tag"   { fg = c.tagYellow }, -- HTML tag angle brackets
+		sym"@constant"          { fg = c.purple }, -- Constant
+		sym"@constant.builtin"  { fg = c.purple, gui = 'bold' }, -- Special
+		sym"@string.escape"     { fg = c.orange }, -- SpecialChar
+		sym"@character.special" { }, -- SpecialChar
+		sym"@parameter"         { fg = c.white, gui = 'italic'}, -- Identifier
+		sym"@method"            { fg = c.methodYellow }, -- Function
+		sym"@field"             { fg = c.purple }, -- Identifier
+		sym"@property"          { fg = c.purple }, -- Identifier
+		sym"@constructor"       { fg = c.orange }, -- Special
+		sym"@operator"          { fg = c.white }, -- Operator
+		sym"@variable"          { fg = c.white }, -- Identifier
+
+		sym"@type"              { fg = c.typeBlue },
+		sym"@type.builtin"  { fg = c.orange },
+		sym"@type.definition"  { fg = c.orange },
+		sym"@type.qualifier"  { fg = c.orange },
+		sym"@function"          { fg = c.blue }, -- Function
+		sym"@function.builtin"  { fg = c.blue, gui = 'bold' },
+		sym"@function.method"  { fg = c.methodYellow },
+		sym"@function.method.call"  { fg = c.methodYellow },
+		-- sym"@function.macro"    { }, -- Macro
+		sym"@attribute" { fg = c.typeGreen },
+		sym"@variable.builtin"  { fg = c.orange }, -- e.g. this
+		sym"@variable.parameter"  { gui = 'italic' }, -- e.g. self
+		sym"@variable.parameter.builtin"  { fg = c.typeGreen }, -- e.g. self
+		sym"@variable.member"  { fg = c.purple }, -- object and struct fields
+		sym"@tag"               { fg = c.typeGreen }, -- for React
+		sym"@tag.builtin"               { fg = c.tagYellow },
+		sym"@tag.delimiter"               { fg = c.tagYellow },
+		sym"@tag.attribute"         { fg = c.white }, -- HTML tag attribute
+
 	}
 end)
 
